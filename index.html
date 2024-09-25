@@ -8,23 +8,32 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Home</h1>
-        </div>
-        <div class="menu">
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="contact.php">Contact</a></li>
-            </ul>
-        </div>
-        <div class="content">
-            <h2>Welcome to my website</h2>
-            <p>This is a simple website created using PHP and MySQL.</p>
-        </div>
-        <div class="footer">
-            <p>&copy; 2019</p>
-        </div>
+    <!-- Create a div with centered style-->
+    <div style="text-align: center;">
+        <div style="width: 500px; margin: 0 auto; margin-top: 100px; font-size: 25px;">Time until Richard and Melody reunite:</div>
+        <div id="countdown" style="width: 500px; margin: 0 auto; margin-top: 20px; font-size: 25px;"></div>
+        <script>
+            
+            countdownElement = document.getElementById("countdown");
+            countdownTime = new Date("2024-10-4 12:16:00")
+            
+            function updateCountdown() {
+                currentTime = new Date();
+                timeDifference = countdownTime - currentTime;
+                if (timeDifference < 0) {
+                    countdownElement.innerHTML = "Richard and Melody have reunited!";
+                } else {
+                    days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                    hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                    seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+                    countdownElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+                }
+            }
+
+            setInterval(updateCountdown, 1000);
+            
+        </script>
     </div>
+     
 </html>
