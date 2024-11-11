@@ -19,7 +19,9 @@
             countdownTime = new Date("11/26/2024 23:58:00")
             
             function updateCountdown() {
-                currentTime = new Date();
+                // currentTime = new Date();
+                currentTime = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+
                 timeDifference = countdownTime - currentTime;
                 if (timeDifference < 0) {
                     countdownElement.innerHTML = "Richard and Melody have reunited!";
